@@ -28,8 +28,11 @@ jobs:
     - name: Installing ArgoCD
       run: |
         kubectl get pods
-    - name: Patching and Exposing the LoadBalancer URL for ArgoCD
+    - name: Patching and Exposing the LoadBalancer URL
       run: |
         kubectl patch svc argocd-server -p '{"spec": {"type": "LoadBalancer"}}'
         kubectl get svc
         echo "ArgoCD is up and successfully installed over AWS Elastic Kubernetes Service..!!"
+    - name: Fetching the ArgoCD Root Password
+      run: |
+        kubectl get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
