@@ -26,6 +26,7 @@ jobs:
       run: |
         aws eks --region us-east-1 update-kubeconfig --name metronetpocprometheus
     - name: Installing ArgoCD
+      if: contains(kubectl get svc argocd-server, 'argocd-server')
       run: |
         kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
     - name: Patching and Exposing the LoadBalancer URL for ArgoCD
