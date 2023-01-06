@@ -25,9 +25,8 @@ jobs:
     - name: Login into AWS EKS cluster
       run: |
         aws eks --region us-east-1 update-kubeconfig --name metronetpocprometheus
-    - name: Creating Namespace and installing ArgoCD Manifest Files into AWS EKS Cluster
+    - name: Installing ArgoCD Manifest Files into AWS EKS Cluster
       run: |
-        kubectl create namespace argocd
         kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
     - name: Patching and Exposing the LoadBalancer URL for ArgoCD
       run: |
