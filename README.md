@@ -1,3 +1,3 @@
-# CICD-pipeline-POC
+# argocd-deployment-eks-cicd
 #
 argocd-deployment-eks-cicd
