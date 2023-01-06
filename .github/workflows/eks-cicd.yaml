@@ -24,7 +24,7 @@ jobs:
         sudo mv ./kubectl /usr/local/bin/kubectl
     - name: Login into AWS EKS cluster
       run: |
-        aws eks --region us-east-1 update-kubeconfig --name metronetpocargocd(open)
+        aws eks --region us-east-1 update-kubeconfig --name metronetpocprometheus
     - name: Creating Namespace and installing ArgoCD Manifest Files into AWS EKS Cluster
       run: |
         kubectl create namespace argocd
