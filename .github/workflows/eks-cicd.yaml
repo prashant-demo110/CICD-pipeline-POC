@@ -22,10 +22,10 @@ jobs:
         curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.16.8/2020-04-16/bin/linux/amd64/kubectl
         chmod +x ./kubectl
         sudo mv ./kubectl /usr/local/bin/kubectl
-    - name: Login into AWS EKS cluster
+    - name: Login into EKS cluster
       run: |
         aws eks --region us-east-1 update-kubeconfig --name metronetpocprometheus
-    - name: Installing ArgoCD Manifest Files into AWS EKS Cluster
+    - name: Installing ArgoCD
       run: |
         kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
     - name: Patching and Exposing the LoadBalancer URL for ArgoCD
