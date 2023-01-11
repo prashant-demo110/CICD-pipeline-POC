@@ -1,3 +1,3 @@
 # argocd-deployment-eks-cicd
 #
-argocd-deployment-eks-cicd Service
+argocd-deployment-eks-cicd Service-2
